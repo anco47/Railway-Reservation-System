@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Add Train</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='train.css'>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap" rel="stylesheet">
+    <script src='deleteTrain.js'></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #283d9c; color: white;">
+        <div class="container-fluid col-10">
+            <a class="navbar-brand" href="#" style="font-weight: bolder; font-family: 'Petit Formal Script', cursive;">
+                RailRev
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link  text-white active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  text-white" href="#">FAQs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  text-white">About</a>
+                    </li>
+                </ul>
+                <div class="text-end">
+                    <button class="btn btn-outline-light me-2" type="button">Login</button>
+                    <button class="btn btn-outline-warning active" type="button">Sign-up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    {{#if errors}}
+    {{#each errors as |error|}}
+    <div class="alert alert-danger">
+        {{error}}
+    </div>
+    {{/each}}
+    {{/if}}
+    <div class="card-holder ">
+        <div class="card text-center shadow-sm bg-body rounded" style="width: 30rem;">
+            <div class="card-header" style="background-color: #283d9c;">
+                Add New Train
+            </div>
+            <form action="/addTrain" method="post" class="enter">
+                <div class="mb-3 row">
+                    <label for="nameoftrain" class="col-sm-6 col-form-label" style="font-weight: bold;">
+                        Train Name</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="nameoftrain" id="nameoftrain">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="seatavailable" class="col-sm-6 col-form-label" style="font-weight: bold;">
+                        Seat Available</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="seatavailable" id="seatavailable">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="currentStation" class="col-sm-6 col-form-label" style="font-weight: bold;">
+                        Current Station</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="currentStation" id="currentStation">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="trainStatus" class="col-sm-6 col-form-label" style="font-weight: bold;">
+                        Train Status</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="trainStatus" id="trainStatus">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="stationid" class="col-sm-6 col-form-label" style="font-weight: bold;">
+                        Station ID</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="stationid" id="stationid">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="endstationid" class="col-sm-6 col-form-label" style="font-weight: bold;">
+                        End Station ID</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="endstationid" id="endstationid">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="routeno" class="col-sm-6 col-form-label" style="font-weight: bold;">
+                        Route Number</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="routeno" id="routeno">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-primary">Add Train</button>
+            </form>
+        </div>
+    </div>
+    <div class="curstations">
+        <table id="myTable" class="table table-hover shadow bg-body rounded">
+            <thead class="table rounded" style="background-color: #283d9c; color: white;">
+                <tr>
+                    <th>S.No.</th>
+                    <th>Train_No</th>
+                    <th>Name</th>
+                    <th>Seat Availability</th>
+                    <th>Current Station</th>
+                    <th>Train Status (Active or Inactive)</th>
+                    <th>Start Station</th>
+                    <th>End Station</th>
+                    <th>Allocated to Route no.</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                    <th>Passengers</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{#each Trains as |train|}}
+                <tr>
+                    <td></td>
+                    <td>{{train.Train_No}}</td>
+                    <td>{{train.Name}}</td>
+                    <td>{{train.Seat_Available}}</td>
+                    <td>{{train.Current_Station}}</td>
+                    <td>{{train.Train_Status}}</td>
+                    <td>{{train.Station_ID}}</td>
+                    <td>{{train.EndStationID}}</td>
+                    <td>{{train.Route_No}}</td>
+                    <td>
+                        <button class="editTrain btn btn-primary">Edit</button>
+                    </td>
+                    <td>
+                        <button class="deleteTrain btn btn-danger">Delete</button>
+                    </td>
+                    <td>
+                        <button class="passenger btn btn-info">Passengers</button>
+                    </td>
+
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <Nav class="navbar bottom navbar-dark" style="background-color: #283d9c; color: white; display: flex;">
+        <div class="container-fluid footer_css" style="justify-content: center;">
+            <a class="text-center" href="/" style="color: white; text-decoration: none;">© 2020 Copyright:
+                railrev.com</a>
+        </div>
+    </Nav>
+</body>
+
+</html>
