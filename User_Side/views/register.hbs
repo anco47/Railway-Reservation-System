@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='signup.css'>
+    <title>SignUp</title>
+</head>
+
+<body>
+    {{#if errors}}
+    {{#each errors as |error|}}
+    <div class="alert alert-danger">
+        {{error}}
+    </div>
+    {{/each}}
+    {{/if}}
+    <div id="card">
+        <div id="card-content">
+            <div id="card-title">
+                <h2>SignUp</h2>
+                <div class="underline-title"></div>
+            </div>
+            <form method="post" class="form" action="/register">
+                <label id="firstlabel" for="firstname" style=" padding-top: 8px">
+                    First Name
+                </label>
+                <input id="firstname" class="signup-form-content" type="text" name="firstname" autoComplete="on"
+                    required />
+                <div class="signup-form-border" id="name"></div>
+                <label id="lastname" for="last-name" style=" padding-top: 8px">
+                    Last Name
+                </label>
+                <input id="lastname" class="signup-form-content" type="text" name="lastname" autoComplete="on"
+                    required />
+                <div class="signup-form-border" id="last-name"></div>
+                <label for="Address" style=" padding-top: 13px">
+                    Address
+                </label>
+                <input id="Address" class="signup-form-content" type="text" name="Address" autoComplete="on" required />
+                <div class="signup-form-border"></div>
+                <label for="phone" style=" padding-top: 13px">
+                    Contact Number
+                </label>
+                <input id="phone" class="signup-form-content" type="text" name="phone" autoComplete="on" required />
+                <div class="signup-form-border"></div>
+                <label for="dob" style=" padding-top: 22px">
+                    Date of Birth
+                </label>
+                <input type="date" class="sign-form-content" id="dob" name="dob" required>
+                <label for="email" style=" padding-top: 16px">
+                    Email*
+                </label>
+                <input id="email" class="signup-form-content" type="email" name="email" autoComplete="on" required />
+                <div class="signup-form-border"></div>
+                <label for="password" style=" padding-top: 16px">
+                    Password*
+                </label>
+                <input id="password" class="signup-form-content" type="password" name="password" required />
+                <div class="signup-form-border"></div>
+                <label for="confirmationPassword" style=" padding-top: 16px">
+                    Confirm Password*
+                </label>
+                <input id="confirmationPassword" class="signup-form-content" type="password" name="confirmationPassword"
+                    required />
+                <div class="signup-form-border"></div>
+                <input id="submit-btn" type="submit" name="submit" value="SignUp" />
+                <a href="/login" id="signup">Already have account ?</a>
+                <a href="/" id="signup">Return to Home Page</a>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
